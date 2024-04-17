@@ -45,6 +45,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/2.0.4/js/dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
             let table = new DataTable('#myTable', {
@@ -53,7 +54,7 @@
                     targets: -1, // Target the last column for action buttons
                     render: function(data, type, row, meta) {
                         // Assuming data is an object with properties for each button
-                        return '<button class="btn action-btn edit-btn">Send Message</button>';
+                        return '<button class="btn  btn-primary action-btn edit-btn">Send Message</button>';
                     }
                 }]
             });
@@ -92,6 +93,11 @@
                 },
                 success: function(data) {
                     console.log('Data:', data);
+                    Swal.fire({
+                        title: "Done",
+                        text: "Message sent succesfully!",
+                        icon: "success"
+                      });
                     // Handle data as needed
                 },
                 error: function(xhr, status, error) {
