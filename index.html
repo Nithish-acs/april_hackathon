@@ -50,13 +50,16 @@
         $(document).ready(function() {
             let table = new DataTable('#myTable', {
                 responsive: true,
+                searching: false, // Disable search bar
+                lengthChange: false, // Disable "Show [X] entries" dropdown
                 columnDefs: [{
                     targets: -1, // Target the last column for action buttons
                     render: function(data, type, row, meta) {
                         // Assuming data is an object with properties for each button
                         return '<button class="btn  btn-primary action-btn edit-btn">Send Message</button>';
                     }
-                }]
+                }],
+                paging: false,
             });
 
             $('#myTable').on('click', '.edit-btn', function() {
